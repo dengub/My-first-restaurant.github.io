@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Общие стили для страницы */
+body,
+html {
+    height: 100%;
+    display: right;
+    justify-content: center;
+    background-image: url('sss.jpg');
+    
+      
+        
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+/* Контейнер для макета с изображениями и формой */
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для боковых изображений */
+.side-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Контейнер для формы бронирования */
+.booking-container {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+/* Заголовок формы */
+.booking-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+
+#table-number {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.booking-container h1 span {
+    color: #ffa500;
+    font-family: "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Стили для формы */
+.booking-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.booking-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #cccccc;
+    /* Серый фон */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Тень для эффекта */
+    width: 300px;
+    /* Задайте нужную ширину формы */
+}
+
+.booking-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    /* Отступы между полями */
+}
+
+/* Стили для кнопки */
+.booking-form button {
+    background-color: #ffa500;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form button:hover {
+    background-color: #e69500;
+}

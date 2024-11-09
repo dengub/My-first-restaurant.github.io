@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование столика</title>
+    
+    <link rel="stylesheet" href="stolik.css"><!-- Подключите CSS для оформления -->
+</head>
+
+<body>
+    <div class="booking-form">
+        <h2>Бронювання столика</h2>
+        <form id="bookingForm" action="submit-booking.php" method="POST" onsubmit="return validateForm(event)">
+            <!-- Вызов функции валидации -->
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Час:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="people">Кількість людей:</label>
+            <input type="number" id="people" name="people" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Почта:</label>
+            <input type="email" id="email" name="email">
+
+                <label for="table-number">Номер столика:</label>
+                <select id="table-number" name="table-number" required>
+                    <option value="" disabled selected>-- виберіть столик --</option>
+                    <!-- Опции с номерами столиков от 1 до 20 -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                </select>
+
+            <button type="submit" class="centered-button">Забронювати</button>
+        </form>
+
+        <script>
+            // Дополнительная проверка с помощью JavaScript
+            document.getElementById("table-form").addEventListener("submit", function (event) {
+                const tableNumber = document.getElementById("table-number").value;
+
+                if (!tableNumber) {
+                    event.preventDefault(); // Останавливаем отправку формы
+                    alert("Пожалуйста, выберите номер столика.");
+                }
+            });
+        </script>
+        <p id="message" style="color: green; text-align: center; margin-top: 20px;"></p>
+        <!-- Сообщение об успехе или ошибке -->
+    </div>
+
+    <script src="app.js"></script> <!-- Подключаем файл с JavaScript -->
+</body>
+
+</html>

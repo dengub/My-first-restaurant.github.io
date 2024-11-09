@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Заказ еды онлайн</title>
+    <link rel="stylesheet" href="oplata zakaza online.css">
+    <p id="message" style="color: red; font-weight: bold;"></p>
+
+</head>
+
+<body>
+    <h1>Заказать доставку еды</h1>
+    <form id="orderForm">
+        <form id="orderForm" action="submit_order.php" method="post">
+        <label>Выберите блюдо:</label>
+        <select name="dish" id="dish" required onchange="calculateTotal()">
+            <option value="">--Выберите блюдо--</option>
+        
+            <!-- Холодные закуски -->
+            <option value="Паштет із лосося">Паштет із лосося</option>
+            <option value="Лосось Татакі">Лосось Татакі</option>
+            <option value="Тартар із лосося">Тартар із лосося</option>
+            <option value="Тартар з тунця">Тартар з тунця</option>
+            <option value="Карпаччо з яловичини">Карпаччо з яловичини</option>
+            <option value="Карпаччо из лосося">Карпаччо из лосося</option>
+            <option value="Креветки в льоду">Креветки в льоду</option>
+            <option value="Севіче з дорадо">Севіче з дорадо</option>
+            <option value="Мікс із сирів">Мікс із сирів</option>
+            <option value="Альмавар з теплом і сиром">Альмавар з теплом і сиром</option>
+        
+            <!-- Закуски горячие -->
+            <option value="Креветки з соусом">Креветки з соусом</option>
+            <option value="Фондю з сиром">Фондю з сиром</option>
+            <option value="Гарячий тартар з тунця">Гарячий тартар з тунця</option>
+            <option value="Курячі крильця з медом">Курячі крильця з медом</option>
+            <option value="Мідії в вершковому соусі">Мідії в вершковому соусі</option>
+        
+            <!-- Салаты -->
+            <option value="Салат 'Моцарела | томати'">Салат 'Моцарела | томати'</option>
+            <option value="Салат 'Лосось | авокадо'">Салат 'Лосось | авокадо'</option>
+            <option value="Салат з креветками i диким тунцем">Салат з креветками i диким тунцем</option>
+            <option value="Салат з куркою">Салат з куркою</option>
+            <option value="Салат з авокадо та шпинатом">Салат з авокадо та шпинатом</option>
+            <option value="Цезар з куркою">Цезар з куркою</option>
+            <option value="Салат 'Грецький'">Салат 'Грецький'</option>
+            <option value="Салат з телятиною">Салат з телятиною</option>
+        
+            <!-- Супы -->
+            <option value="ТОМ ЯМ">ТОМ ЯМ</option>
+            <option value="Бульон з курячою грудкою">Бульон з курячою грудкою</option>
+            <option value="Суп місо">Суп місо</option>
+            <option value="Крем-суп з грибами">Крем-суп з грибами</option>
+            <option value="Курячий суп з локшиною">Курячий суп з локшиною</option>
+            <option value="Рибний бульйон">Рибний бульйон</option>
+            <option value="Борщ з пампушками">Борщ з пампушками</option>
+        
+            <!-- Гарниры -->
+            <option value="Овочі Гриль">Овочі Гриль</option>
+            <option value="Рис з овочами">Рис з овочами</option>
+            <option value="Картопля фрі">Картопля фрі</option>
+            <option value="Пюре картопляне">Пюре картопляне</option>
+            <option value="Гречка">Гречка</option>
+        
+            <!-- Паста/Ризотто -->
+            <option value="Паста з овочами">Паста з овочами</option>
+            <option value="Паста 'Карбонара'">Паста 'Карбонара'</option>
+            <option value="Ризотто з морепродуктами">Ризотто з морепродуктами</option>
+            <option value="Паста Болоньєзе">Паста Болоньєзе</option>
+            <option value="Ризотто з грибами">Ризотто з грибами</option>
+            <option value="Паста з креветками">Паста з креветками</option>
+            <option value="Паста Альфредо">Паста Альфредо</option>
+            <option value="Ризотто з трюфелем">Ризотто з трюфелем</option>
+        
+            <!-- Десерты -->
+            <option value="Фісташковий Тірамісу">Фісташковий Тірамісу</option>
+            <option value="Кокосовий Чізкейк">Кокосовий Чізкейк</option>
+            <option value="Шоколадний фондан">Шоколадний фондан</option>
+            <option value="Профітролі з кремом">Профітролі з кремом</option>
+            <option value="Торт Наполеон">Торт Наполеон</option>
+            <option value="Яблучний штрудель">Яблучний штрудель</option>
+            <option value="Фрукти асорті">Фрукти асорті</option>
+        
+            <!-- Соки -->
+            <option value="Малиновий">Малиновий</option>
+            <option value="Томатний">Томатний</option>
+            <option value="Чорна Смородина">Чорна Смородина</option>
+            <option value="Яблучний">Яблучний</option>
+            <option value="Апельсиновий">Апельсиновий</option>
+            <option value="Вишневий">Вишневий</option>
+            <option value="Мультивітамін">Мультивітамін</option>
+        </select>
+
+        <label>Количество порций:</label>
+        <input type="number" name="quantity" id="quantity" min="1" required oninput="calculateTotal()">
+
+        <label>Ваше имя:</label>
+        <input type="text" name="customerName" required>
+
+        <label>Адрес доставки:</label>
+        <textarea name="address" required></textarea>
+
+        <label>Телефон:</label>
+        <input type="tel" name="phone" required>
+
+        <p>Общая стоимость: <span id="totalPrice">0 грн.</span></p>
+        <p id="finalReceipt"></p>
+
+        <button type="submit">Оформить заказ</button>
+        <form id="orderForm" action="submit_order.php" method="post">
+
+    </form>
+
+    <script src="oplata zamovlenya.js"></script>
+</body>
+
+</html>
